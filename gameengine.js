@@ -62,7 +62,7 @@ GameEngine.prototype.startInput = function () {
     var that = this;
 
     this.ctx.canvas.addEventListener("keydown", function (e) {
-                                       console.log(String.fromCharCode(e.which));
+        console.log(String.fromCharCode(e.which));
 
         if (String.fromCharCode(e.which) === ' ') {
             that.space = true;
@@ -72,8 +72,19 @@ GameEngine.prototype.startInput = function () {
 
             that.arrRight = true;
         }
+
+
         e.preventDefault();
     }, false);
+
+    this.ctx.canvas.addEventListener("keyup", function (e) {
+         console.log("key up : " + String.fromCharCode(e.which));
+         if (String.fromCharCode(e.which) === "'") {
+
+            that.arrRight = false;
+        }
+        
+    });
 
     console.log('Input started');
 }

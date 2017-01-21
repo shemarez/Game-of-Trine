@@ -96,7 +96,7 @@ GunWoman.prototype.update = function () {
     
     }
     else if (this.walk) {
-        if (this.walkAni.isDone()) {
+        if (this.walkAni.isDone() && !this.game.arrRight) {
             this.walkAni.elapsedTime = 0;
             this.walk = false;
         }
@@ -107,7 +107,7 @@ GunWoman.prototype.update = function () {
 
 GunWoman.prototype.draw = function (ctx) {
     if (this.attack) {
-        this.attackAni.drawFrame(this.game.clockTick, ctx, this.x , this.y);
+        this.attackAni.drawFrame(this.game.clockTick, ctx, this.x - 95 , this.y);
     } else if (this.walk) {
         this.walkAni.drawFrame(this.game.clockTick, ctx, this.x , this.y );
     }
